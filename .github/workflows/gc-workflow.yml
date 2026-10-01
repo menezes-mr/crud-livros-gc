@@ -1,0 +1,26 @@
+name: Workflow GC
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  execucao-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+      
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Listar arquivos do projeto
+        run: ls -la
+        
+      - name: Mensagem de sucesso
+        run: echo "Pipeline executada com sucesso!"
